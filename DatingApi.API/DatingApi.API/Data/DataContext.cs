@@ -13,5 +13,6 @@ namespace DatingApi.API.Data
 
         // Values gonna be the table name, is conventional to pluralize the name of the entities
         public DbSet<Value> Values { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
