@@ -27,7 +27,7 @@ namespace DatingApi.API.Controllers
             _config = config;
         }
 
-        //Si no ponemos el [FromBody] y la etiqueta [ApiController] no esta en el controlador, entonces los valores string empty aparecen como null, perdemos la validación del model state.
+        //Si no ponemos el [FromBody] y la etiqueta [ApiController] no está en el controlador, entonces los valores string empty aparecen como null, perdemos la validación del model state.
         //Si ponemos el [FromBody] nos aseguramos q los valores no vengan como null en caso de estar vacios, ejemplo ("password"= "")
         [HttpPost("register")]
         public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
