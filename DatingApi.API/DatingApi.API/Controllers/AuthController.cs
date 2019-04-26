@@ -69,15 +69,15 @@ namespace DatingApi.API.Controllers
             //En nuestro caso es el id de usuario y el nombre de usuario.
             var claims = new[]
             {
-                new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
-                new Claim(ClaimTypes.Name, userFromRepo.Username)
-            };
+                    new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
+                    new Claim(ClaimTypes.Name, userFromRepo.Username)
+                };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:Token").Value));
-            
+
             //credenciales
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
-            
+
             //descripcion del token
             var tokenDescriptor = new SecurityTokenDescriptor
             {
@@ -95,8 +95,9 @@ namespace DatingApi.API.Controllers
             {
                 token = tokenHandler.WriteToken(token)
             });
+
         }
 
-        
+
     }
 }
